@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+}
+
+ :root {
+    --main-color: #2196f3;
+}
+
+body {
+    background-color: #ecececec;
+}
+
+.main-title {
+    text-transform: uppercase;
+    margin: 60px auto 80px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 30px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    transition: var(--main-transition);
+}
+
+.main-title:hover {
+    color: white;
+    border: 2px solid white;
+    transition-delay: 0.5s;
+}
+
+.main-title::before,
+.main-title::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-title::before {
+    left: -30px
+}
+
+.main-title::after {
+    right: -30px;
+}
+
+.main-title:hover::before {
+    z-index: -1;
+    animation: left-move 0.5s linear forwards;
+}
+
+.main-title:hover::after {
+    z-index: -1;
+    animation: right-move 0.5s linear forwards;
+}
+
+
+/* end global rules*/
+
+.row {
+    margin-bottom: 30px;
+}
+
+.container>div>div {
+    box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%), 0px 2px 4px 0px rgb(0 0 0 / 12%);
+    background-color: white;
+    padding: 20px;
+    position: relative;
+    width: 48%;
+}
+
+@media (max-width:768px) {
+    .container>div>div {
+        width: 100%;
+    }
+}
+
+.comments {
+    padding: 20px;
+}
+
+.bu {
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid var(--main-color);
+}
+
+.comments strong {
+    color: var(--main-color);
+}
+
+@media (max-width:991px) {
+    .row {
+        gap: 10px !important;
+    }
+}
+
+.container>div div:nth-child(odd) {
+    margin-left: 0;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #2196f3;
+    font-size: 25px;
+}
+
+p {
+    color: #777;
+}
+
+
+/*start animation*/
+
+@keyframes left-move {
+    50% {
+        left: 0;
+        height: 12px;
+        width: 12px;
+    }
+    100% {
+        left: 0;
+        border-radius: 0;
+        width: 50%;
+        height: 100%;
+    }
+}
+
+@keyframes right-move {
+    50% {
+        right: 0;
+        width: 12px;
+        height: 12px;
+    }
+    100% {
+        right: 0;
+        border-radius: 0;
+        width: 52%;
+        height: 100%;
+    }
+}
